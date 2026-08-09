@@ -1,0 +1,65 @@
+erDiagram
+    USERS ||--o{ COURSES : teaches
+    USERS ||--o{ RESOURCES : creates
+    USERS ||--o{ RESOURCE_USAGE : records
+    CATEGORIES ||--o{ RESOURCES : classifies
+    COURSES ||--o{ COURSE_RESOURCES : contains
+    RESOURCES ||--o{ COURSE_RESOURCES : assigned_to
+    RESOURCES ||--o{ RESOURCE_USAGE : receives
+
+    USERS {
+        INT user_id PK
+        VARCHAR first_name
+        VARCHAR last_name
+        VARCHAR email UK
+        ENUM role
+        BOOLEAN active
+    }
+
+    COURSES {
+        INT course_id PK
+        VARCHAR course_code UK
+        VARCHAR course_title
+        VARCHAR department
+        TINYINT credits
+        INT instructor_id FK
+        ENUM status
+    }
+
+    CATEGORIES {
+        INT category_id PK
+        VARCHAR category_name UK
+        VARCHAR description
+    }
+
+    RESOURCES {
+        INT resource_id PK
+        INT category_id FK
+        VARCHAR title
+        VARCHAR description
+        ENUM resource_format
+        VARCHAR location_url
+        ENUM availability_status
+        INT created_by FK
+        DATE last_updated
+    }
+
+    COURSE_RESOURCES {
+        INT course_resource_id PK
+        INT course_id FK
+        INT resource_id FK
+        BOOLEAN is_required
+        TINYINT week_number
+        VARCHAR notes
+        DATE assigned_on
+    }
+
+    RESOURCE_USAGE {
+        INT usage_id PK
+        INT resource_id FK
+        INT user_id FK
+        DATETIME accessed_at
+        ENUM action_type
+        TINYINT feedback_rating
+    }
+
