@@ -1,4 +1,4 @@
--- Referential Integrity Tests
+--Referential Integrity Tests
 -- Educational Resource Management System
 -- Purpose: Check for records that reference missing related records.
 
