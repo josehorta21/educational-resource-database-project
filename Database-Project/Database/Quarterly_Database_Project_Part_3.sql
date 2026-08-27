@@ -1,7 +1,7 @@
 -- =============================================================
 -- Quarterly Database Project Part 3: Implement & Test
 -- Project: Educational Resource Management System
--- Team: Anudari Undrakh, Jose Antonio Horta Herrera, Louis Ngonzo
+-- Team: Anudari Undrakh and Jose Antonio Horta Herrera
 -- Database platform: MySQL 8.0.16 or later
 -- =============================================================
 
